@@ -55,7 +55,8 @@ app.get('/page2', function(req, res) {
   res.render('page2');
 });
 
-// Start the Server
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+
 });

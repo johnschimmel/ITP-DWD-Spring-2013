@@ -1,4 +1,8 @@
-var name = "john";
+var mongoose = require('mongoose');
+mongoose.connect('localhost', 'test');
+
+var schema = mongoose.Schema({ name: 'string' });
+var Cat = mongoose.model('Cat', schema);
 
 
 exports.index = function(req,res){
@@ -7,7 +11,11 @@ exports.index = function(req,res){
     title : 'ExpressJS Demo'
   }
   
-  console.log(name);
+	var kitty = new Cat({ name: 'Zildjian' });
+	kitty.save(function (err) {
+	  if (err) // ...
+	  console.log('meow');
+	});
 
   res.render('index', templateData);
 };

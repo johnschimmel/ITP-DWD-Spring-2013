@@ -5,10 +5,11 @@
 
 var express = require('express')
   , http = require('http')
-  , path = require('path')
-  , routes = require('./routes');
-
+  , path = require('path');
+  
 var app = express();
+
+var routes = require('./routes');
 
 // Express app configuration 
 app.configure(function(){

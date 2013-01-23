@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-mongoose.connect('localhost', 'test');
+// mongoose.connect('localhost', 'test');
 
 var schema = mongoose.Schema({ name: 'string' });
 var Cat = mongoose.model('Cat', schema);
@@ -11,11 +11,12 @@ exports.index = function(req,res){
     title : 'ExpressJS Demo'
   }
   
-	var kitty = new Cat({ name: 'Zildjian' });
-	kitty.save(function (err) {
-	  if (err) // ...
-	  console.log('meow');
-	});
+	// var kitty = new Cat({ name: 'Zildjian' });
+	// kitty.save(function (err) {
+	//   if (err) // ...
+	//   console.log('meow');
+	// });
+	console.log(process.env.name);
 
   res.render('index', templateData);
 };

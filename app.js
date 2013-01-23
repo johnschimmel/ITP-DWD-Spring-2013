@@ -5,7 +5,8 @@
 
 var express = require('express')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , routes = require('./routes');
 
 var app = express();
 
@@ -37,21 +38,10 @@ app.configure('development', function(){
 });
 
 // Routes
+app.get('/', routes.index);
+app.get('/page2', routes.page2);
 
-app.get('/', function(req, res) {
-  
-  var templateData = {
-    content : 'Hello World!!',
-    title : 'ExpressJS Demo'
-  }
-  
-  res.render('index', templateData);
 
-});
-
-app.get('/page2', function(req, res) {
-  res.render('page2');
-});
 
 var port = process.env.PORT || 3000;
 app.listen(port, function() {

@@ -12,8 +12,6 @@ var app = express();
 // Express app configuration 
 app.configure(function(){
 
-  app.set('port', process.env.PORT || 3000);
-  
   //  templates directory
   app.set('views', __dirname + '/views');
 

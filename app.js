@@ -22,7 +22,6 @@ app.configure(function(){
   app.set('layout','layout');
   app.engine('html', require('hogan-express'));
 
-
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());

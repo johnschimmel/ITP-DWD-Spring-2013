@@ -10,6 +10,6 @@ exports.index = function(req,res){
 
 };
 
-exprts.page2 = function(req, res) {
+exports.page2 = function(req, res) {
   res.render('page2');
 };

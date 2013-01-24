@@ -1,12 +1,44 @@
+<!-- Example row of columns -->
+<style>
 
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="span6">
+ul#sidenav {
+	margin-top:20px;
+}
 
-                    <h2>{{ title }}</h2>
-                    <p>{{ content }}</p>
-                    
-                </div>
+ul#sidenav li {
+	line-height:20px;
+}
 
-                
-            </div>
+ul#sidenav li a {
+	border: 1px solid #e5e5e5;
+	font-size:14px;
+	padding:9px 15px;
+}
+
+ul#sidenav > li.first-child > a {
+	border-radius: 6px 6px 0 0;
+}
+
+span.subnavtxt { color : gray;}
+</style>
+
+<div class="row">
+
+	<div class="span3">
+		<nav>
+			<ul id="sidenav" class="nav nav-list">
+			  
+			  <li><a href="#"><b>Home</b><br><span class='subnavtxt'>Testing</span></a></li>
+			  <li><a href="#">Library</a></li>
+			</ul>
+		</nav>
+	</div>
+    <div class="span9">
+
+        <h2>{{ title }}</h2>
+        <p>{{ content }}</p>
+        
+    </div>
+
+    
+</div>

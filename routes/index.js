@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
-// mongoose.connect('localhost', 'test');
+mongoose.connect(process.env.MONGOLAB_URI);
 
-var schema = mongoose.Schema({ name: 'string' });
-var Cat = mongoose.model('Cat', schema);
+var models = require('../models.js').buildModels(mongoose);
+var ClassNote = mongoose.model('ClassNote');
+// var schema = mongoose.Schema({ name: 'string' });
+// var Cat = mongoose.model('Cat', schema);
 
 
 exports.index = function(req,res){
@@ -11,6 +13,12 @@ exports.index = function(req,res){
     title : 'ExpressJS Demo'
   }
   
+
+  var classnote = new ClassNote({
+  	title : 'Testing',
+  	url_title : "testing_123"
+  });
+  classnote.save();
 	// var kitty = new Cat({ name: 'Zildjian' });
 	// kitty.save(function (err) {
 	//   if (err) // ...

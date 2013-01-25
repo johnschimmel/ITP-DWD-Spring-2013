@@ -9,10 +9,14 @@ var express = require('express')
   
 var app = express();
 
-var routes = require('./routes');
+var mongoose = require('mongoose');
+
 
 // Express app configuration 
 app.configure(function(){
+
+  // database
+  app.db = mongoose.connect(process.env.MONGOLAB_URI);
 
   //  templates directory
   app.set('views', __dirname + '/views');
@@ -32,15 +36,17 @@ app.configure(function(){
 
 });
 
-
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-// Routes
-app.get('/', routes.index);
-app.get('/page2', routes.page2);
+// set up models
+require('./models').buildModels(mongoose);
 
+
+// routes
+require('./routes')(app,mongoose);
+require('./routes/admin.js')(app,mongoose);
 
 
 var port = process.env.PORT || 3000;

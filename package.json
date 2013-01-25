@@ -1,13 +1,17 @@
 {
   "name": "itpdwdspring2013",
   "version": "0.0.1",
+  
   "dependencies": {
     "express": "3.0.0rc5",
     "hogan-express" : "0.3.3",
     "passport": "0.1.15",
     "mongodb" : "1.2.9",
-    "mongoose" : "3.5.4"
+    "mongoose" : "3.5.4",
+    "forms" : "0.1.3",
+    "markdown" : "0.4.0"
   },
+
   "engines" : {
     "node" : "0.8.x",
     "npm" : "1.1.x"

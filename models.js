@@ -38,9 +38,12 @@ function buildModels(mongoose) {
         urltitle    : { type: String, lowercase: true, unique: true },
         title       : String,
         intro       : String,
+        intro_md    : String,
         notes       : String,
+        notes_md    : String,
         notesReady  : String,
         assignment  : String,
+        assignment_md : String,
         publishedstatus : String,
         lastupdated : { type: Date, default: Date.now },
         studentAssignments : [assignment]

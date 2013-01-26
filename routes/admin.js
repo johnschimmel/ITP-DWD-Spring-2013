@@ -1,5 +1,6 @@
 module.exports = function(app,mongoose) {
 	var md = require( "markdown" );
+	var moment = require("moment");
 
 	var forms = require('forms'),
 		fields = forms.fields,
@@ -17,10 +18,80 @@ module.exports = function(app,mongoose) {
 		intro : fields.string({required: true, widget:widgets.textarea({class:'test',rows: 4}) }),
 		notes : fields.string({required: true, widget:widgets.textarea({class:'test',rows: 6}) }),
 		assignment : fields.string({required: true, widget:widgets.textarea({class:'test',rows: 6}) }),
-		notesReady: fields.boolean({label:'Published?'})
+		notesReady: fields.boolean({label:'Notes Ready?'}),
+		published: fields.boolean({label:'Published?'}),
 	});
 
-	app.get('/admin',function(req,res){
+
+	app.get('/admin', function(req,res){
+
+		// get all classnote items ordered by classdate
+		ClassNote.find({}).sort('classdate').exec(function(err, notes){
+
+			for (n in notes) {
+				notes[n].formattedDate = function() {
+			        tmpDate = moment(this.classdate).add('minutes',moment().zone());
+			        return moment(tmpDate).format("YYYY-MM-DD");
+			    };
+			}
+
+			templateData = {
+				notes : notes,
+				formatDate : function() {
+					return function(dateObj) {
+						console.log(typeof(dateObj));
+						m = moment(dateObj);
+						return m.format('MMMM Do YYYY, h:mm:ss a');
+					}
+				}
+			}
+
+			res.render('admin/index.html', templateData);
+			
+		})
+		
+	});
+
+	app.get('/admin/edit/:documentid', function(req,res){
+
+		notes_id = req.params.documentid;
+		
+		ClassNote.findById(notes_id, function(err, note){
+
+			if (err) {
+				res.send("unable to find the note");
+			}
+
+
+			formdata = {
+				title : note.title,
+				urltitle : note.urltitle,
+				classdate : moment(note.classdate).add('minutes',moment().zone()).format('YYYY-MM-DD'),
+				intro : note.intro_md,
+				notes : note.notes_md,
+				assignment : note.assignment_md,
+				published : note.published
+
+
+			}
+
+			// attach note data to form
+			editform = notes_entry_form.bind(formdata);
+
+			// prepare template data
+			templateData = {
+				title : 'DWD Admin - ' + note.title,
+				entry_form : editform.toHTML()
+
+			}
+
+			// render entry template
+			res.render('admin/entry.html',templateData);
+		});
+		
+	});
+
+	app.get('/admin/entry',function(req,res){
 
 		// var classnote = new ClassNote({
 		// 	title : 'Testing',
@@ -29,15 +100,32 @@ module.exports = function(app,mongoose) {
 		// classnote.save();
 		templateData = {
 			title : "DWD Admin",
-			entry_form : notes_entry_form.toHTML()
+			entry_form : notes_entry_form.toHTML(),
+			
 		}
-		res.render("admin/index.html",templateData);
+		res.render("admin/entry.html",templateData);
 	});
 
-	app.post('/admin', function(req, res){
+
+	app.post('/admin/create', function(req, res){
 
 		notes_entry_form.handle(req, {
 	        success: function (form) {
+
+	        	classnote = new ClassNote()
+	        	classnote.classdate = new Date(req.param('classdate'));
+	        	classnote.title = req.param('title');
+	        	classnote.urltitle = req.param('urltitle');
+	        	classnote.intro_md = req.param('intro');
+	        	classnote.intro = md.markdown.toHTML( req.param('intro') );
+	        	classnote.notes_md = req.param('notes');
+	        	classnote.notes = md.markdown.toHTML( req.param('notes') );
+	        	classnote.assignment_md = req.param('assignment');
+	        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
+	        	classnote.notesReady = req.param('notesReady');
+	        	classnote.published = req.param('published');
+	        	classnote.save();
+
 	            console.log(form.data);
 	            output = md.markdown.toHTML( req.param('notes') );
 				res.send(output);
@@ -51,7 +139,7 @@ module.exports = function(app,mongoose) {
 					title : "DWD Admin",
 					entry_form : notes_entry_form.toHTML()
 				}
-				res.render("admin/index.html",templateData);
+				res.render("admin/entry.html",templateData);
 	        },
 	        empty: function (form) {
 	            // there was no form data in the request

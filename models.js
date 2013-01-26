@@ -41,10 +41,10 @@ function buildModels(mongoose) {
         intro_md    : String,
         notes       : String,
         notes_md    : String,
-        notesReady  : String,
         assignment  : String,
         assignment_md : String,
-        publishedstatus : String,
+        notesReady  : String,
+        published : String,
         lastupdated : { type: Date, default: Date.now },
         studentAssignments : [assignment]
     });

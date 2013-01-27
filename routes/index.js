@@ -1,27 +1,25 @@
 
 module.exports = function(app,mongoose) {
 
+  var moment = require('moment'),
+      async = require('async');
+
   //models
   var ClassNote = mongoose.model('ClassNote');
-  var moment = require('moment');
+  var Page = mongoose.model('Page');
 
 
 
-  app.get('/admin', function(req,res){
-
-    if (!req.user) {
-      res.redirect('/admin/login');
-    }
-
+  app.get('/', function(req,res){
     async.parallel({
         notes: function(callback){
             // get all classnote items ordered by classdate
-        ClassNote.find({}).sort('classdate').exec(function(err, notes){
+        ClassNote.find({},"title urltitle classdate").sort('classdate').exec(function(err, notes){
 
           for (n in notes) {
             notes[n].formattedDate = function() {
                   tmpDate = moment(this.classdate).add('minutes',moment().zone());
-                  return moment(tmpDate).format("YYYY-MM-DD");
+                  return moment(tmpDate).format("MMM Do");
               };
           }
 
@@ -32,74 +30,64 @@ module.exports = function(app,mongoose) {
         },
         mainpage: function(callback){
             // get all classnote items ordered by classdate
-          Page.findOne({urltitle:mainpage}).exec(function(err, page){
+          Page.findOne({urltitle:'mainpage'}).exec(function(err, page){
             callback(null, page);          
           });
         },
     },
     function(err, results) {
-        
         templateData = {
           notes : results.notes,
           page : results.mainpage
           
 
         }
-        res.render('admin/index.html', templateData);
+        res.render('index.html', templateData);
     });
   });
 
 
-  app.get('/',function(req,res){
 
-    ClassNote.find({}).sort('classdate').exec(function(err, notes){
-
-        for (n in notes) {
-          notes[n].formattedDate = function() {
-                tmpDate = moment(this.classdate).add('minutes',moment().zone());
-                return moment(tmpDate).format("YYYY-MM-DD");
-            };
-        }
-
-        templateData = {
-          notes : notes,
-          
-        }
-
-        res.render('index.html',templateData);
-
-    })
-
-
-    // var templateData = {
-    //   content : 'Hello World!!',
-    //   title : 'DWD Admin'
-    // }
-    // res.render('index.html', templateData);
-
-  });
   
   app.get('/notes/:urltitle', function(req, res){
+        async.parallel({
+            notes: function(callback){
+                // get all classnote items ordered by classdate
+                ClassNote.find({},"title urltitle classdate").sort('classdate').exec(function(err, notes){
 
-    ClassNote.findOne({urltitle:req.params.urltitle}, function(err, notes){
-      if (err){
-        res.send("unable to find")
+                  for (n in notes) {
+                    notes[n].formattedDate = function() {
+                          tmpDate = moment(this.classdate).add('minutes',moment().zone());
+                          return moment(tmpDate).format("MMM Do");
+                      };
+                  }
 
-      } else if (notes == null) {
-        res.send("notes is null");
+                  callback(null, notes);
+                  
+                });
 
-      } else
-      {
+            },
+            note: function(callback){
+             
+              ClassNote.findOne({urltitle:req.params.urltitle}, function(err, note){
+                callback(null, note);
+              });
 
+            },
+
+    },
+    function(err, results) {
         templateData = {
-          notes : notes
+          notes : results.notes,
+          note : results.note
+          
+
         }
         res.render('notes.html', templateData);
-      }
-
-      
-
     });
+
+
+    
 
   })
 

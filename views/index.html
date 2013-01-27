@@ -19,20 +19,28 @@
 		border-radius: 6px 6px 0 0;
 	}
 
+	ul#sidenav .icon-chevron-right {
+		float:right;
+		margin-top:2px;
+		margin-right:-6px;
+	}
+
 	span.subnavtxt { color : gray;}
 </style>
 
 <div class="row">
 
-	<div class="span3">
+	<div class="span3 hidden-phone" >
 		<nav>
 			<ul id="sidenav" class="nav nav-list">
 			  {{#notes}}
 			  <li>
-			  	<a href="#">
+			  	<a href="/notes/{{urltitle}}">
+			  		
 			  		<b>{{title}}</b>
 			  		<br>
 			  		<span class='subnavtxt'>{{formattedDate}}</span>
+
 			  	</a>
 			  </li>
 			  {{/notes}}

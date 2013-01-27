@@ -6,29 +6,29 @@
     <div class="span10">
         <article>
             <header>
-                <h1>{{notes.title}}</h1>
+                <h1>{{note.title}}</h1>
             
             </header>
             
             <div class="intro">
-                {{& notes.intro}}
+                {{& note.intro}}
             </div>
 
             <hr>
             
             <section id="notes">
-                {{& notes.notes}}
+                {{& note.notes}}
             </section>
 
             <section id="assigment">
-                {{& notes.assignment}}
+                {{& note.assignment}}
             </section>
 
             <section id="comments">
                 <div id="disqus_thread"></div>
                 <script type="text/javascript">
                     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-                    var disqus_shortname = 'itpdwdspring2013'; // required: replace example with your forum shortname
+                    var disqus_shortname = 'itpdwdspring2013';
 
                     /* * * DON'T EDIT BELOW THIS LINE * * */
                     (function() {

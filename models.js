@@ -1,37 +1,12 @@
 function buildModels(mongoose) {
 
     var Schema = mongoose.Schema;
+    var passportLocalMongoose = require('passport-local-mongoose');
 
-    Comments = new Schema({
-      title     : String
-    , body      : String
-    , date      : Date
-    });
-    
-    mongoose.model('Comment',Comments);
-    
-    
-    var BlogPost = new Schema({
-      title     : String
-    , body      : String
-    , buf       : Buffer
-    , date      : Date
-    , comments  : [Comments]
-    , meta      : {
-        votes : Number
-        , favs  : Number
-      }
-    });
-    
-    mongoose.model('BlogPost',BlogPost);
-    
-    var assignment = new Schema({
-        name : String,
-        url : String,
-        github : String,
-        date : { type: Date, default: Date.now },
-    });
-    
+    var userSchema = new Schema({});
+    userSchema.plugin(passportLocalMongoose);
+    mongoose.model('User', userSchema);
+
     
     var ClassNote = new Schema({
         classdate   : Date,
@@ -45,11 +20,9 @@ function buildModels(mongoose) {
         assignment_md : String,
         notesReady  : String,
         published : String,
-        lastupdated : { type: Date, default: Date.now },
-        studentAssignments : [assignment]
+        lastupdated : { type: Date, default: Date.now }
     });
     
-    mongoose.model("Assignment", assignment);
     mongoose.model('ClassNote',ClassNote);
 
     var pageSchema = new Schema({
@@ -59,6 +32,7 @@ function buildModels(mongoose) {
         lastupdated : { type: Date, default: Date.now }
     });
     mongoose.model('Page', pageSchema);
+
     
 }
 

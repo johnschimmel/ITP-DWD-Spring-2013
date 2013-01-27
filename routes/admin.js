@@ -1,6 +1,7 @@
 module.exports = function(app,mongoose) {
 	var md = require( "markdown" );
 	var moment = require("moment");
+	var passport = require("passport");
 
 	var forms = require('forms'),
 		fields = forms.fields,
@@ -10,6 +11,7 @@ module.exports = function(app,mongoose) {
 
 	//models
 	var ClassNote = mongoose.model('ClassNote');
+	var User = mongoose.model('User');
 
 	var notes_entry_form = forms.create({
 		title: fields.string({required: true}),
@@ -22,9 +24,50 @@ module.exports = function(app,mongoose) {
 		published: fields.boolean({label:'Published?'}),
 	});
 
+	// register
+	app.get('/admin/register', function(req, res) {
+        res.render('admin/register.html', { });
+    });
+
+    app.post('/admin/register', function(req, res) {
+
+    	if (req.body.password != req.body.confirm) {
+    		return res.render('admin/register.html');
+    	} else {
+
+	        User.register(new User({ username : req.body.username }), req.body.password, function(err, new_user) {
+	            if (err) {
+	                return res.render('admin/register.html');
+	            }
+	            console.log("**********");
+	            console.log(new_user);
+	            res.redirect('/admin');
+	        });
+	    }
+
+    });
+    // end register
+
+    // login
+    app.get('/admin/login', function(req, res) {
+        res.render('admin/login.html', { user : req.user });
+    });
+
+    app.post('/admin/login', passport.authenticate('local'), function(req, res) {
+        res.redirect('/admin');
+    });
+
+    app.get('/admin/logout', function(req, res) {
+        req.logout();
+        res.redirect('/admin');
+    });
 
 	app.get('/admin', function(req,res){
 
+		if (!req.user) {
+			res.redirect('/admin/login');
+		}
+		
 		// get all classnote items ordered by classdate
 		ClassNote.find({}).sort('classdate').exec(function(err, notes){
 

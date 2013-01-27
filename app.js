@@ -5,11 +5,12 @@
 
 var express = require('express')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , mongoose = require('mongoose')
+  , passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
   
 var app = express();
-
-var mongoose = require('mongoose');
 
 
 // Express app configuration 
@@ -30,6 +31,13 @@ app.configure(function(){
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
+
+  // COOKIEHASH in your .env file (also share with heroku)
+  app.use(express.cookieParser(process.env.COOKIEHASH));
+  app.use(express.session());
+
+  app.use(passport.initialize());
+  app.use(passport.session());
   
   // css, images and js
   app.use(express.static(path.join(__dirname, 'public')));
@@ -42,10 +50,18 @@ app.configure('development', function(){
 
 // set up models
 require('./models').buildModels(mongoose);
+var User = mongoose.model('User');
+
+// Configure passport
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 
 // routes
 require('./routes')(app,mongoose);
 require('./routes/admin.js')(app,mongoose);
+
 
 
 var port = process.env.PORT || 5000;

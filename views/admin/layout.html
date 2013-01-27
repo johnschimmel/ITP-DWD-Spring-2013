@@ -37,11 +37,13 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">ITP Dynamic Web Development</a>
+                    <a class="brand" href="#">ITP DWD ADMIN</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="#">Home</a></li>
-                            <li><a href="#about">About</a></li>
+                            {{#user}}
+                            <li class="active"><a href="/admin">Admin Home</a></li>
+                            {{/user}}
+                            <!-- <li><a href="#about">About</a></li>
                             <li><a href="#contact">Contact</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -54,7 +56,7 @@
                                     <li><a href="#">Separated link</a></li>
                                     <li><a href="#">One more separated link</a></li>
                                 </ul>
-                            </li>
+                            </li> -->
                         </ul>
                         <form class="hide navbar-form pull-right">
                             <input class="span2" type="text" placeholder="Email">
@@ -80,7 +82,7 @@
         <script src="/js/main.js"></script>
 
         <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            var _gaq=[['_setAccount','UA-29253415-1'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));

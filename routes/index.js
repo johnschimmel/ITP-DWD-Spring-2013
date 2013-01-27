@@ -3,24 +3,36 @@ module.exports = function(app,mongoose) {
 
   //models
   var ClassNote = mongoose.model('ClassNote');
-
+  var moment = require('moment');
 
 
 
   app.get('/',function(req,res){
 
-    var classnote = new ClassNote({
-      title : 'Testing',
-      url_title : "testing_123"
-    });
-    classnote.save();
+    ClassNote.find({}).sort('classdate').exec(function(err, notes){
+
+        for (n in notes) {
+          notes[n].formattedDate = function() {
+                tmpDate = moment(this.classdate).add('minutes',moment().zone());
+                return moment(tmpDate).format("YYYY-MM-DD");
+            };
+        }
+
+        templateData = {
+          notes : notes,
+          
+        }
+
+        res.render('index.html',templateData);
+
+    })
 
 
-    var templateData = {
-      content : 'Hello World!!',
-      title : 'DWD Admin'
-    }
-    res.render('index.html', templateData);
+    // var templateData = {
+    //   content : 'Hello World!!',
+    //   title : 'DWD Admin'
+    // }
+    // res.render('index.html', templateData);
 
   });
   

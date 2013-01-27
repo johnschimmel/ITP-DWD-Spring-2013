@@ -27,8 +27,10 @@ function buildModels(mongoose) {
 
     var pageSchema = new Schema({
         title     : String,
+        urltitle  : String,
         body      : String,
-        publishedstatus : String,
+        body_md   : String,
+        published : String,
         lastupdated : { type: Date, default: Date.now }
     });
     mongoose.model('Page', pageSchema);

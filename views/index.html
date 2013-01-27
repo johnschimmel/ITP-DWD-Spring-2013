@@ -27,9 +27,16 @@ span.subnavtxt { color : gray;}
 	<div class="span3">
 		<nav>
 			<ul id="sidenav" class="nav nav-list">
-			  
-			  <li><a href="#"><b>Home</b><br><span class='subnavtxt'>Testing</span></a></li>
-			  <li><a href="#">Library</a></li>
+			  {{#notes}}
+			  <li>
+			  	<a href="#">
+			  		<b>{{title}}</b>
+			  		<br>
+			  		<span class='subnavtxt'>{{formattedDate}}</span>
+			  	</a>
+			  </li>
+			  {{/notes}}
+
 			</ul>
 		</nav>
 	</div>

@@ -14,6 +14,22 @@
 			</tr>
 			{{/notes}}
 		</table>
+		<br><Br>
+		<h2>Pages</h2>
+		<hr>
+
+		<table class="table table-striped">
+		{{#pages}}
+			<tr>
+				<td>{{title}}</td>
+				<td>{{urltitle}}</td>
+				<td><a href="/admin/page_edit/{{id}}">edit</a></td>
+				<td><a href="/page/{{urltitle}}">view</a></td>
+				<td>{{^published}}Draft{{/published}}{{#published}}Published{{/published}}</td>
+				
+			</tr>
+		{{/pages}}
+		</table>
 		
 	</div>
 </div>

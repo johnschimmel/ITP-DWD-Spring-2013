@@ -25,27 +25,27 @@ module.exports = function(app,mongoose) {
 	});
 
 	// register
-	app.get('/admin/register', function(req, res) {
-        res.render('admin/register.html', { });
-    });
+	// app.get('/admin/register', function(req, res) {
+ //        res.render('admin/register.html', { });
+ //    });
 
-    app.post('/admin/register', function(req, res) {
+ //    app.post('/admin/register', function(req, res) {
 
-    	if (req.body.password != req.body.confirm) {
-    		return res.render('admin/register.html');
-    	} else {
+ //    	if (req.body.password != req.body.confirm) {
+ //    		return res.render('admin/register.html');
+ //    	} else {
 
-	        User.register(new User({ username : req.body.username }), req.body.password, function(err, new_user) {
-	            if (err) {
-	                return res.render('admin/register.html');
-	            }
-	            console.log("**********");
-	            console.log(new_user);
-	            res.redirect('/admin');
-	        });
-	    }
+	//         User.register(new User({ username : req.body.username }), req.body.password, function(err, new_user) {
+	//             if (err) {
+	//                 return res.render('admin/register.html');
+	//             }
+	//             console.log("**********");
+	//             console.log(new_user);
+	//             res.redirect('/admin');
+	//         });
+	//     }
 
-    });
+ //    });
     // end register
 
     // login
@@ -67,7 +67,7 @@ module.exports = function(app,mongoose) {
 		if (!req.user) {
 			res.redirect('/admin/login');
 		}
-		
+
 		// get all classnote items ordered by classdate
 		ClassNote.find({}).sort('classdate').exec(function(err, notes){
 
@@ -96,6 +96,10 @@ module.exports = function(app,mongoose) {
 	});
 
 	app.get('/admin/edit/:documentid', function(req,res){
+
+		if (!req.user) {
+			res.redirect('/admin/login');
+		}
 
 		notes_id = req.params.documentid;
 		
@@ -137,11 +141,10 @@ module.exports = function(app,mongoose) {
 
 	app.get('/admin/entry',function(req,res){
 
-		// var classnote = new ClassNote({
-		// 	title : 'Testing',
-		// 	url_title : "testing_123"
-		// });
-		// classnote.save();
+		if (!req.user) {
+			res.redirect('/admin/login');
+		}
+
 		templateData = {
 			title : "DWD Admin",
 			entry_form : notes_entry_form.toHTML(),
@@ -152,6 +155,10 @@ module.exports = function(app,mongoose) {
 
 
 	app.post('/admin/edit', function(req, res){
+
+		if (!req.user) {
+			res.redirect('/admin/login');
+		}
 
 		notes_entry_form.handle(req, {
 	        success: function (form) {

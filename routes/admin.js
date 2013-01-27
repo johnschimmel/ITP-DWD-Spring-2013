@@ -24,29 +24,7 @@ module.exports = function(app,mongoose) {
 		published: fields.boolean({label:'Published?'}),
 	});
 
-	// register
-	// app.get('/admin/register', function(req, res) {
- //        res.render('admin/register.html', { });
- //    });
 
- //    app.post('/admin/register', function(req, res) {
-
- //    	if (req.body.password != req.body.confirm) {
- //    		return res.render('admin/register.html');
- //    	} else {
-
-	//         User.register(new User({ username : req.body.username }), req.body.password, function(err, new_user) {
-	//             if (err) {
-	//                 return res.render('admin/register.html');
-	//             }
-	//             console.log("**********");
-	//             console.log(new_user);
-	//             res.redirect('/admin');
-	//         });
-	//     }
-
- //    });
-    // end register
 
     // login
     app.get('/admin/login', function(req, res) {
@@ -229,6 +207,31 @@ module.exports = function(app,mongoose) {
 
 		
 	});
+
+
+	// register
+	// app.get('/admin/register', function(req, res) {
+ //        res.render('admin/register.html', { });
+ //    });
+
+ //    app.post('/admin/register', function(req, res) {
+
+ //    	if (req.body.password != req.body.confirm) {
+ //    		return res.render('admin/register.html');
+ //    	} else {
+
+	//         User.register(new User({ username : req.body.username }), req.body.password, function(err, new_user) {
+	//             if (err) {
+	//                 return res.render('admin/register.html');
+	//             }
+	//             console.log("**********");
+	//             console.log(new_user);
+	//             res.redirect('/admin');
+	//         });
+	//     }
+
+ //    });
+    // end register
 
 
 }

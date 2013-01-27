@@ -24,5 +24,28 @@ module.exports = function(app,mongoose) {
 
   });
   
+  app.get('/notes/:urltitle', function(req, res){
+
+    ClassNote.findOne({urltitle:req.params.urltitle}, function(err, notes){
+      if (err){
+        res.send("unable to find")
+
+      } else if (notes == null) {
+        res.send("notes is null");
+
+      } else
+      {
+
+        templateData = {
+          notes : notes
+        }
+        res.render('notes.html', templateData);
+      }
+
+      
+
+    });
+
+  })
 
 }

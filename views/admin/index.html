@@ -5,8 +5,10 @@
 			{{#notes}}
 			<tr>
 				<td>{{title}}</td>
+				<td>{{urltitle}}</td>
 				<td>{{formattedDate}}</td>
 				<td><a href="/admin/edit/{{id}}">edit</a></td>
+				<td><a href="/notes/{{urltitle}}">view</a></td>
 				<td>{{^published}}Draft{{/published}}{{#published}}Published{{/published}}</td>
 				
 			</tr>

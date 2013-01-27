@@ -1,25 +1,25 @@
 <!-- Example row of columns -->
 <style>
 
-ul#sidenav {
-	margin-top:20px;
-}
+	ul#sidenav {
+		margin-top:20px;
+	}
 
-ul#sidenav li {
-	line-height:20px;
-}
+	ul#sidenav li {
+		line-height:20px;
+	}
 
-ul#sidenav li a {
-	border: 1px solid #e5e5e5;
-	font-size:14px;
-	padding:9px 15px;
-}
+	ul#sidenav li a {
+		border: 1px solid #e5e5e5;
+		font-size:14px;
+		padding:9px 15px;
+	}
 
-ul#sidenav > li.first-child > a {
-	border-radius: 6px 6px 0 0;
-}
+	ul#sidenav > li.first-child > a {
+		border-radius: 6px 6px 0 0;
+	}
 
-span.subnavtxt { color : gray;}
+	span.subnavtxt { color : gray;}
 </style>
 
 <div class="row">
@@ -41,10 +41,10 @@ span.subnavtxt { color : gray;}
 		</nav>
 	</div>
     <div class="span9">
-
+    {{#page}}
         <h2>{{ title }}</h2>
         <p>{{ content }}</p>
-        
+    {{/page}}
     </div>
 
     

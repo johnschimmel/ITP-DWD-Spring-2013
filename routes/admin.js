@@ -92,10 +92,6 @@ module.exports = function(app,mongoose) {
 		    }
 		    res.render('admin/index.html', templateData);
 		});
-
-
-		
-		
 	});
 
 	app.get('/admin/edit/:documentid', function(req,res){

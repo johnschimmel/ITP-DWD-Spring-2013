@@ -7,6 +7,49 @@ module.exports = function(app,mongoose) {
 
 
 
+  app.get('/admin', function(req,res){
+
+    if (!req.user) {
+      res.redirect('/admin/login');
+    }
+
+    async.parallel({
+        notes: function(callback){
+            // get all classnote items ordered by classdate
+        ClassNote.find({}).sort('classdate').exec(function(err, notes){
+
+          for (n in notes) {
+            notes[n].formattedDate = function() {
+                  tmpDate = moment(this.classdate).add('minutes',moment().zone());
+                  return moment(tmpDate).format("YYYY-MM-DD");
+              };
+          }
+
+          callback(null, notes);
+          
+        });
+
+        },
+        mainpage: function(callback){
+            // get all classnote items ordered by classdate
+          Page.findOne({urltitle:mainpage}).exec(function(err, page){
+            callback(null, page);          
+          });
+        },
+    },
+    function(err, results) {
+        
+        templateData = {
+          notes : results.notes,
+          page : results.mainpage
+          
+
+        }
+        res.render('admin/index.html', templateData);
+    });
+  });
+
+
   app.get('/',function(req,res){
 
     ClassNote.find({}).sort('classdate').exec(function(err, notes){

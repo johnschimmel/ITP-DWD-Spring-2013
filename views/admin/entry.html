@@ -1,7 +1,22 @@
-<h1>{{ title }}</h1>
+<style>
+	textarea { width:500px;}
+</style>
 
-<form method="POST" action="/admin/create">
-	{{& entry_form }}
+<div class="row">
+	
+	<div class="span12">
 
-	<input type="submit" class="btn">
-</form>
+		<h1>{{ title }}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="span8">
+
+		<form method="POST" action="/admin/edit">
+			{{& entry_form }}
+
+			{{#note}}<input type="hidden" name='noteid' id='noteid' value='{{note.id}}'>{{/note}}
+			<input type="submit" class="btn">
+		</form>
+	</div>
+</div>

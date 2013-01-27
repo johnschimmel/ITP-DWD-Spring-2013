@@ -15,9 +15,9 @@ module.exports = function(app,mongoose) {
 		title: fields.string({required: true}),
 		urltitle: fields.string({required: true,label:'URL Slug'}),
 		classdate: fields.string({required: true}),
-		intro : fields.string({required: true, widget:widgets.textarea({class:'test',rows: 4}) }),
-		notes : fields.string({required: true, widget:widgets.textarea({class:'test',rows: 6}) }),
-		assignment : fields.string({required: true, widget:widgets.textarea({class:'test',rows: 6}) }),
+		intro : fields.string({required: true, widget:widgets.textarea({class:'test',cols:150,rows: 4}) }),
+		notes : fields.string({required: true, widget:widgets.textarea({class:'test',cols:150,rows: 6}) }),
+		assignment : fields.string({required: true, widget:widgets.textarea({class:'test',cols:150,rows: 6}) }),
 		notesReady: fields.boolean({label:'Notes Ready?'}),
 		published: fields.boolean({label:'Published?'}),
 	});
@@ -80,6 +80,7 @@ module.exports = function(app,mongoose) {
 
 			// prepare template data
 			templateData = {
+				note : note,
 				title : 'DWD Admin - ' + note.title,
 				entry_form : editform.toHTML()
 
@@ -107,28 +108,58 @@ module.exports = function(app,mongoose) {
 	});
 
 
-	app.post('/admin/create', function(req, res){
+	app.post('/admin/edit', function(req, res){
 
 		notes_entry_form.handle(req, {
 	        success: function (form) {
 
-	        	classnote = new ClassNote()
-	        	classnote.classdate = new Date(req.param('classdate'));
-	        	classnote.title = req.param('title');
-	        	classnote.urltitle = req.param('urltitle');
-	        	classnote.intro_md = req.param('intro');
-	        	classnote.intro = md.markdown.toHTML( req.param('intro') );
-	        	classnote.notes_md = req.param('notes');
-	        	classnote.notes = md.markdown.toHTML( req.param('notes') );
-	        	classnote.assignment_md = req.param('assignment');
-	        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
-	        	classnote.notesReady = req.param('notesReady');
-	        	classnote.published = req.param('published');
-	        	classnote.save();
+	        	if ( req.param('noteid') != undefined ) {
+	        		
+	        		ClassNote.findById(req.param('noteid'), function(err, classnote){
 
-	            console.log(form.data);
-	            output = md.markdown.toHTML( req.param('notes') );
-				res.send(output);
+						if (err) {
+							res.send("unable to find the note");
+						}
+
+						classnote.classdate = new Date(req.param('classdate'));
+			        	classnote.title = req.param('title');
+			        	classnote.urltitle = req.param('urltitle');
+			        	classnote.intro_md = req.param('intro');
+			        	classnote.intro = md.markdown.toHTML( req.param('intro') );
+			        	classnote.notes_md = req.param('notes');
+			        	classnote.notes = md.markdown.toHTML( req.param('notes') );
+			        	classnote.assignment_md = req.param('assignment');
+			        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
+			        	classnote.notesReady = req.param('notesReady');
+			        	classnote.published = req.param('published');
+			        	classnote.save();
+
+			        	res.redirect('/admin/edit/'+classnote.id);
+
+					});
+
+				} else {
+
+		        	classnote = new ClassNote()
+
+		        	classnote.classdate = new Date(req.param('classdate'));
+		        	classnote.title = req.param('title');
+		        	classnote.urltitle = req.param('urltitle');
+		        	classnote.intro_md = req.param('intro');
+		        	classnote.intro = md.markdown.toHTML( req.param('intro') );
+		        	classnote.notes_md = req.param('notes');
+		        	classnote.notes = md.markdown.toHTML( req.param('notes') );
+		        	classnote.assignment_md = req.param('assignment');
+		        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
+		        	classnote.notesReady = req.param('notesReady');
+		        	classnote.published = req.param('published');
+		        	classnote.save();
+
+		        	console.log(form.data);
+		            output = md.markdown.toHTML( req.param('notes') );
+					res.send(output);
+	        	}
+	            
 
 
 	        },

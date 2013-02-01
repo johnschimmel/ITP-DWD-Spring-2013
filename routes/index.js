@@ -11,6 +11,7 @@ module.exports = function(app,mongoose) {
 
 
   app.get('/', function(req,res){
+  	
     async.parallel({
         notes: function(callback){
             // get all classnote items ordered by classdate

@@ -16,15 +16,26 @@ The **package.json** file defines the name of our NodeJS app and any dependencie
 **package.json**
 
 	{
-	  "name": "application-name",
+	  "name": "itpdwdspring2013",
 	  "version": "0.0.1",
-	  "private": true,
-	  "scripts": {
-	    "start": "node app"
-	  },
+	  
 	  "dependencies": {
 	    "express": "3.0.0rc5",
-	    "hogan-express" : "0.3.3"
+	    "hogan-express" : "0.3.3",
+	    "passport": "0.1.x",
+	    "passport-local": "0.1.x",
+	    "passport-local-mongoose": "0.2.0",
+	    "mongodb" : "1.2.9",
+	    "mongoose" : "3.5.4",
+	    "forms" : "0.1.3",
+	    "markdown" : "0.4.0",
+	    "moment" : "1.7.2",
+	    "async" : "0.1.x"
+	  },
+
+	  "engines" : {
+	    "node" : "0.8.x",
+	    "npm" : "1.1.x"
 	  }
 	}
 
@@ -75,7 +86,19 @@ When configured, ExpressJS will allow a layout to automatically 'wrap' around a 
 
 When **res.render('index')** is executed, **index** is rendered first then passed into the **layout.html** template. The contents of the first rendering, **index.html**, are yielded into **layout.html**
 
+### MongoDB 
 
+This site uses a MongoDB database from MongoLab (one of Heroku's AddOns).
+
+Create a **.env** file with the following contents. Save it to your web app's root directory.
+
+	MONGOLAB_URI=YOUR MONGODB:// CONNECTION STRING HERE
+	COOKIEHASH=RANDOM_WORDS_NUMBERS_FOR_HASH
+
+
+## HEROKU
+
+Install Heroku's Toolbelt, this will give you access to Heroku and the Foreman tool to start and stop your app. Download here, <https://toolbelt.heroku.com/>
 
 ## USAGE
 
@@ -91,20 +114,19 @@ You only need to run this code once, every time you update **package.json**.
 
 Navigate to code directory in Terminal: 
 	
-	node app.js
+	foreman start
 
 If successful, your Terminal window will read... 
 
-> Server started on port 3000
+> Server started on port 5000
 
 ### View the webpages
 
-Open Web Browser and navigate to [http://localhost:3000](http://localhost:3000)
+Open Web Browser and navigate to [http://localhost:5000](http://localhost:5000)
 
 Available URLs 
 
-* [http://localhost:3000/](http://localhost:3000)
-* [http://localhost:3000/page2](http://localhost:3000/page2)
+* [http://localhost:5000/](http://localhost:5000)
 
 
 ### Stopping the server (CTRL+C)
@@ -112,3 +134,4 @@ Available URLs
 You must manually stop the NodeJS in the Terminal window that is running the script. 
 
 If the Terminal window, stop the script with **CTRL+C**
+

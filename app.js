@@ -57,11 +57,9 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-
 // routes
 require('./routes')(app,mongoose);
 require('./routes/admin.js')(app,mongoose);
-
 
 
 var port = process.env.PORT || 5000;

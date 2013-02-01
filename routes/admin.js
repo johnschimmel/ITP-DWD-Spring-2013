@@ -182,7 +182,12 @@ module.exports = function(app,mongoose) {
 			        	classnote.assignment_md = req.param('assignment');
 			        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
 			        	classnote.notesReady = req.param('notesReady');
-			        	classnote.published = req.param('published');
+
+			        	if (req.param('published') == 'on') {
+			        		classnote.published = true;
+			        	} else {
+			        		classnote.published = false;
+			        	}
 			        	classnote.save();
 
 			        	res.redirect('/admin/edit/'+classnote.id);
@@ -203,7 +208,13 @@ module.exports = function(app,mongoose) {
 		        	classnote.assignment_md = req.param('assignment');
 		        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
 		        	classnote.notesReady = req.param('notesReady');
-		        	classnote.published = req.param('published');
+		        	
+		        	if (req.param('published') == 'on') {
+		        		classnote.published = true;
+		        	} else {
+		        		classnote.published = false;
+		        	}
+
 		        	classnote.save();
 
 		        	console.log(form.data);
@@ -311,7 +322,13 @@ module.exports = function(app,mongoose) {
 			        	page.urltitle = req.param('urltitle');
 			        	page.body = md.markdown.toHTML( req.param('body') );
 			        	page.body_md = req.param('body');
-			        	page.published = req.param('published');
+			        	
+			        	if (req.param('published') == 'on') {
+			        		page.published = true;
+			        	} else {
+			        		page.published = false;
+			        	}
+			        	
 			        	page.save();
 
 			        	res.redirect('/admin/page_edit/'+page.id);
@@ -325,7 +342,13 @@ module.exports = function(app,mongoose) {
 		        	page.urltitle = req.param('urltitle');
 		        	page.body = md.markdown.toHTML( req.param('body') );
 		        	page.body_md = req.param('body');
-		        	page.published = req.param('published');
+
+		        	if (req.param('published') == 'on') {
+		        		page.published = true;
+		        	} else {
+		        		page.published = false;
+		        	}
+		        	
 		        	page.save();
 
 		        	

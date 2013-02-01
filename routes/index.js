@@ -14,7 +14,7 @@ module.exports = function(app,mongoose) {
     async.parallel({
         notes: function(callback){
             // get all classnote items ordered by classdate
-        ClassNote.find({},"title urltitle classdate").sort('classdate').exec(function(err, notes){
+        ClassNote.find({}).sort('classdate').exec(function(err, notes){
 
           for (n in notes) {
             notes[n].formattedDate = function() {
@@ -53,7 +53,7 @@ module.exports = function(app,mongoose) {
         async.parallel({
             notes: function(callback){
                 // get all classnote items ordered by classdate
-                ClassNote.find({},"title urltitle classdate").sort('classdate').exec(function(err, notes){
+                ClassNote.find({},"published title urltitle classdate").sort('classdate').exec(function(err, notes){
 
                   for (n in notes) {
                     notes[n].formattedDate = function() {

@@ -37,7 +37,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </a>
-                    <a class="brand" href="#">ITP Dynamic Web Development</a>
+                    <a class="brand" href="/">ITP Dynamic Web Development</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
                             <li class="active"><a href="/">Home</a></li>
@@ -47,7 +47,11 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                   {{#notes}}
-                                  <li><a href="/notes/{{urltitle}}">{{title}}</b></a></li>
+                                  <li>
+                                    <a href="{{#published}}/notes/{{urltitle}}{{/published}}{{^published}}#{{/published}}">
+                                    {{title}}
+                                    </a>
+                                  </li>
                                   {{/notes}}
                                <!--      <li><a href="#">Action</a></li>
                                     <li><a href="#">Another action</a></li>

@@ -19,7 +19,7 @@ function buildModels(mongoose) {
         assignment  : String,
         assignment_md : String,
         notesReady  : String,
-        published : String,
+        published : Boolean,
         lastupdated : { type: Date, default: Date.now }
     });
     
@@ -30,7 +30,7 @@ function buildModels(mongoose) {
         urltitle  : String,
         body      : String,
         body_md   : String,
-        published : String,
+        published : Boolean,
         lastupdated : { type: Date, default: Date.now }
     });
     mongoose.model('Page', pageSchema);

@@ -23,7 +23,7 @@ module.exports = function(app,mongoose) {
 		intro : fields.string({required: true, widget:widgets.textarea({class:'test',cols:150,rows: 4}) }),
 		notes : fields.string({required: true, widget:widgets.textarea({class:'test',cols:150,rows: 6}) }),
 		assignment : fields.string({required: true, widget:widgets.textarea({class:'test',cols:150,rows: 6}) }),
-		notesReady: fields.boolean({label:'Notes Ready?'}),
+		
 		published: fields.boolean({label:'Published?'}),
 	});
 
@@ -117,9 +117,9 @@ module.exports = function(app,mongoose) {
 				title : note.title,
 				urltitle : note.urltitle,
 				classdate : moment(note.classdate).add('minutes',moment().zone()).format('YYYY-MM-DD'),
-				intro : note.intro_md,
-				notes : note.notes_md,
-				assignment : note.assignment_md,
+				intro : note.intro,
+				notes : note.notes,
+				assignment : note.assignment,
 				published : note.published
 
 
@@ -173,14 +173,14 @@ module.exports = function(app,mongoose) {
 						classnote.classdate = new Date(req.param('classdate'));
 			        	classnote.title = req.param('title');
 			        	classnote.urltitle = req.param('urltitle');
-			        	classnote.intro_md = req.param('intro');
-			        	classnote.intro = md.markdown.toHTML( req.param('intro') );
-			        	classnote.notes_md = req.param('notes');
-			        	classnote.notes = md.markdown.toHTML( req.param('notes') );
-			        	classnote.assignment_md = req.param('assignment');
-			        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
-			        	classnote.notesReady = req.param('notesReady');
-
+			        	classnote.intro = req.param('intro');
+			        	classnote.notes = req.param('notes');
+			        	classnote.assignment = req.param('assignment');
+			        	//classnote.intro_md = req.param('intro');
+			        	//classnote.notes_md = req.param('notes');
+			        	//classnote.assignment_md = req.param('assignment');
+			        	// classnote.notesReady = req.param('notesReady');
+						
 			        	if (req.param('published') == 'on') {
 			        		classnote.published = true;
 			        	} else {
@@ -199,13 +199,13 @@ module.exports = function(app,mongoose) {
 		        	classnote.classdate = new Date(req.param('classdate'));
 		        	classnote.title = req.param('title');
 		        	classnote.urltitle = req.param('urltitle');
-		        	classnote.intro_md = req.param('intro');
-		        	classnote.intro = md.markdown.toHTML( req.param('intro') );
-		        	classnote.notes_md = req.param('notes');
-		        	classnote.notes = md.markdown.toHTML( req.param('notes') );
-		        	classnote.assignment_md = req.param('assignment');
-		        	classnote.assignment = md.markdown.toHTML( req.param('assignment') );
-		        	classnote.notesReady = req.param('notesReady');
+		        	classnote.intro = req.param('intro');
+		        	classnote.notes = req.param('notes');
+		        	classnote.assignment = req.param('assignment');
+		        	//classnote.intro_md = req.param('intro');
+		        	//classnote.notes_md = req.param('notes');
+		        	// classnote.assignment_md = req.param('assignment');
+		        	// classnote.notesReady = req.param('notesReady');
 		        	
 		        	if (req.param('published') == 'on') {
 		        		classnote.published = true;
@@ -216,8 +216,9 @@ module.exports = function(app,mongoose) {
 		        	classnote.save();
 
 		        	console.log(form.data);
-		            output = md.markdown.toHTML( req.param('notes') );
-					res.send(output);
+		        	res.redirect('/admin/edit/'+classnote.id);
+		   			// output = md.markdown.toHTML( req.param('notes') );
+					// res.send(output);
 	        	}
 	            
 
@@ -269,7 +270,7 @@ module.exports = function(app,mongoose) {
 			formdata = {
 				title : page.title,
 				urltitle : page.urltitle,
-				body : page.body_md,
+				body : page.body,
 				published : page.published
 			}
 
@@ -306,8 +307,7 @@ module.exports = function(app,mongoose) {
 
 			        	page.title = req.param('title');
 			        	page.urltitle = req.param('urltitle');
-			        	page.body = md.markdown.toHTML( req.param('body') );
-			        	page.body_md = req.param('body');
+			        	page.body = req.param('body'); //md.markdown.toHTML( req.param('body') );
 			        	
 			        	if (req.param('published') == 'on') {
 			        		page.published = true;
@@ -326,8 +326,8 @@ module.exports = function(app,mongoose) {
 		        	page = new Page()
 					page.title = req.param('title');
 		        	page.urltitle = req.param('urltitle');
-		        	page.body = md.markdown.toHTML( req.param('body') );
-		        	page.body_md = req.param('body');
+		        	page.body = req.param('body'); //md.markdown.toHTML( req.param('body') );
+		        	// page.body_md = req.param('body');
 
 		        	if (req.param('published') == 'on') {
 		        		page.published = true;

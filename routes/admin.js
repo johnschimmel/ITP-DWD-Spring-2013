@@ -34,6 +34,13 @@ module.exports = function(app,mongoose) {
 		published: fields.boolean({label:'Published?'}),
 	});
 
+	function ensureAuthenticated(req, res, next) {
+	    console.log("is Authenticated:" + req.isAuthenticated());
+	    
+	    if (req.isAuthenticated()) { return next(); }
+	    res.redirect('/admin/login');
+	}
+
     // login
     app.get('/admin/login', function(req, res) {
     	templateData = {
@@ -52,11 +59,11 @@ module.exports = function(app,mongoose) {
         res.redirect('/admin');
     });
 
-	app.get('/admin', function(req,res){
-
-		if (!req.user) {
-			res.redirect('/admin/login');
-		}
+	app.get('/admin', ensureAuthenticated, function(req,res){
+		console.log("we're in admin")
+		// if (!req.user) {
+		// 	res.redirect('/admin/login');
+		// }
 
 		async.parallel({
 		    notes: function(callback){
@@ -94,11 +101,8 @@ module.exports = function(app,mongoose) {
 		});
 	});
 
-	app.get('/admin/edit/:documentid', function(req,res){
+	app.get('/admin/edit/:documentid',ensureAuthenticated, function(req,res){
 
-		if (!req.user) {
-			res.redirect('/admin/login');
-		}
 
 		notes_id = req.params.documentid;
 		
@@ -139,11 +143,8 @@ module.exports = function(app,mongoose) {
 		
 	});
 
-	app.get('/admin/entry',function(req,res){
+	app.get('/admin/entry',ensureAuthenticated, function(req,res){
 
-		if (!req.user) {
-			res.redirect('/admin/login');
-		}
 
 		templateData = {
 			title : "DWD Admin",
@@ -155,11 +156,8 @@ module.exports = function(app,mongoose) {
 	});
 
 
-	app.post('/admin/edit', function(req, res){
+	app.post('/admin/edit',ensureAuthenticated, function(req, res){
 
-		if (!req.user) {
-			res.redirect('/admin/login');
-		}
 
 		notes_entry_form.handle(req, {
 	        success: function (form) {
@@ -245,11 +243,7 @@ module.exports = function(app,mongoose) {
 
 
 
-	app.get('/admin/page_entry',function(req,res){
-
-		if (!req.user) {
-			res.redirect('/admin/login');
-		}
+	app.get('/admin/page_entry', ensureAuthenticated, function(req,res){
 
 		templateData = {
 			title : "DWD Admin",
@@ -261,11 +255,7 @@ module.exports = function(app,mongoose) {
 	});
 
 
-	app.get('/admin/page_edit/:documentid', function(req,res){
-
-		if (!req.user) {
-			res.redirect('/admin/login');
-		}
+	app.get('/admin/page_edit/:documentid', ensureAuthenticated, function(req,res){
 
 		page_id = req.params.documentid;
 		
@@ -301,11 +291,7 @@ module.exports = function(app,mongoose) {
 		
 	});
 
-	app.post('/admin/page_edit', function(req, res){
-
-		if (!req.user) {
-			res.redirect('/admin/login');
-		}
+	app.post('/admin/page_edit', ensureAuthenticated, function(req, res){
 
 		page_entry_form.handle(req, {
 	        success: function (form) {

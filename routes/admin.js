@@ -157,7 +157,7 @@ exports.edit_note_get =  function(req,res){
 			layout : 'admin/layout.html',user:req.user
 
 		}
-
+		console.log(note);
 		// render entry template
 		res.render('admin/entry.html',templateData);
 	});

@@ -82,19 +82,38 @@ exports.notes = function(req, res){
 
 exports.pagedisplay = function(req, res) {
 
-  console.log(req.params.pageslug);
-  Page.findOne({urltitle:req.params.pageslug, published:true}, function(err, page) {
+  async.parallel({
+      notes: function(callback){
+          // get all classnote items ordered by classdate
+          ClassNote.find({},"published title urltitle classdate").sort('classdate').exec(function(err, notes){
 
-    if (err) {
-      res.send("unable to find page").status(404);
-    }
+            for (n in notes) {
+              notes[n].formattedDate = function() {
+                    tmpDate = moment(this.classdate).add('minutes',moment().zone());
+                    return moment(tmpDate).format("MMM Do");
+                };
+            }
 
-    var templateData = {
-      page : page
-    };
-    console.log(page);
-    res.render('page.html', templateData);
+            callback(null, notes);
+            
+          });
 
-  })
+      },
+      page: function(callback){
+       
+        Page.findOne({urltitle:req.params.pageslug}, function(err, page){
+          callback(null, page);
+        });
+
+      },
+
+  },
+  function(err, results) {
+      var templateData = {
+        notes : results.notes,
+        page : results.page
+      };
+      res.render('page.html', templateData);
+  });
 
 }

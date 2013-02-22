@@ -68,6 +68,7 @@ passport.deserializeUser(User.deserializeUser());
 var routes = require('./routes/index.js');
 app.get('/', routes.index);
 app.get('/notes/:urltitle', routes.notes);
+app.get('/page/:pageslug', routes.pagedisplay);
 
 // admin routes
 var admin = require('./routes/admin.js');

@@ -79,3 +79,22 @@ exports.notes = function(req, res){
       res.render('notes.html', templateData);
   });
 }
+
+exports.pagedisplay = function(req, res) {
+
+  console.log(req.params.pageslug);
+  Page.findOne({urltitle:req.params.pageslug, published:true}, function(err, page) {
+
+    if (err) {
+      res.send("unable to find page").status(404);
+    }
+
+    var templateData = {
+      page : page
+    };
+    console.log(page);
+    res.render('page.html', templateData);
+
+  })
+
+}

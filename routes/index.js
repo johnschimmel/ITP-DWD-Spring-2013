@@ -1,13 +1,38 @@
 var moment = require('moment'),
       async = require('async');
 
+if (process.env.REDISTOGO_URL) {
+  // TODO: redistogo connection
+  var rtg   = require("url").parse(process.env.REDISTOGO_URL);
+  var redis = require("redis").createClient(rtg.port, rtg.hostname);
+  redis.auth(rtg.auth.split(":")[1]); 
+  redis.on("error", function (err) {
+      console.log("Error " + err);
+  });
+
+} 
+
 var ClassNote = require('../models/classnote.js');
 var Page = require('../models/page.js');
 
 // main page
 exports.index =  function(req,res){
   
+
   async.parallel({
+      rd : function(callback) {
+        redis.get("mycounter", function (err, data) {
+            if (err) {
+                return console.error("error response - " + err);
+                callback(err, null);
+            }
+            console.log("Got redis key mycounter");
+            console.log(data);
+            var newVal = (data*1)+1;
+            redis.set("mycounter",newVal);
+            callback(null, newVal);
+        });
+      },
       notes: function(callback){
         // get all classnote items ordered by classdate
         ClassNote.find({}).sort('classdate').exec(function(err, notes){

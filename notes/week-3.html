@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <style>body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+
+        <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../index.html">ITP DWD SPRING 2013</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="../index.html">Home</a></li>
+                            <!-- <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>-->
+                            <li class="dropdown">
+                                <a href="week-3.html#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="../page/cheatsheet.html">DWD Cheatsheet</a>
+                                    </li>
+                                  <li>
+                                    <a href="week-1.html">
+                                    Week 1 - Introduction to web development
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-2.html">
+                                    Week 2 - JavaScript functions, events &amp; callbacks
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-3.html">
+                                    Week 3 - Getting started with NodeJS &amp; Heroku
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-4.html">
+                                    Week 4 - ExpressJS framework &amp; templates
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-5.html">
+                                    Week 5 - Databases and MongoDB
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-6.html">
+                                    Week 6 - More on Databases
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-7.html">
+                                    Week 7 - Database review and form validation
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-8.html">
+                                    Week 8 -  Introduction to API&#39;s &amp; JSON
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-9.html">
+                                    Week 9 - Remote APIs, JSON and AJAX
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-10.html">
+                                    Week 10 - Sessions and Cookies
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-11.html">
+                                    Week 11 - Uploading files / Amazon S3
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-12.html">
+                                    Week 12 - Websockets and real-time communication
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-13.html">
+                                    Week 13 - Arduinos, Processing and JSON 
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-14.html">
+                                    Week 14 - Final Presentations
+                                    </a>
+                                  </li>
+                               <!--      <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li> -->
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="week-3.html#" class="dropdown-toggle" data-toggle="dropdown">Previous Classes <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="http://itppyweb.herokuapp.com">Fall 2012 - Python</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://itpwebclassspring2012.herokuapp.com">Spring 2012 - NodeJS</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                        <form class="hide navbar-form pull-right">
+                            <input class="span2" type="text" placeholder="Email">
+                            <input class="span2" type="password" placeholder="Password">
+                            <button type="submit" class="btn">Sign in</button>
+                        </form>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+    <div class="span2">
+        <div class="well">
+            <a href="week-3.html#notes">Notes</a><br>
+            <a href="week-3.html#assignment">Assignment</a>
+        </div>
+    </div>
+
+    <div class="span10">
+        <article>
+            <header>
+                <h1>Week 3 - Getting started with NodeJS &amp; Heroku</h1>
+            
+            </header>
+            
+            <div class="intro">
+                <p>Introduction to webservers & NodeJS. Getting set up locally and on Heroku & a simple NodeJS server. Discuss the command line tools, Git & NPM (node package manager).</p>
+            </div>
+
+            <hr>
+            
+            <section id="notes">
+                <h3 id="servers-clients-quick-refresh">Servers & Clients (Quick Refresh)</h3>
+
+<ul>
+<li>Servers are <strong>programs/scripts</strong> </li>
+<li>that <strong>receive requests</strong> from clients </li>
+<li>via open <strong>ports / sockets</strong> </li>
+<li><strong>respond</strong> with data and services</li>
+</ul>
+
+<h2 id="node-heroku">Node & Heroku</h2>
+
+<p>In this session we will cover</p>
+
+<ul>
+<li><p><a href="week-3.html#intro-to-tcp-and-http-servers">TCP & HTTP. Servers & Clients</a></p></li>
+<li><p><a href="week-3.html#installing-testing-nodejs">Installing & running code w/ NodeJS</a></p></li>
+<li><p><a href="week-3.html#tcp-node-server">Basic TCP server in NodeJS</a></p></li>
+<li><p><a href="week-3.html#http-node-server">HTTP server in NodeJS</a></p></li>
+<li><p><a href="week-3.html#heroku-platform">Hello to Heroku</a></p></li>
+<li><p><a href="week-3.html#setup-and-files-for-heroku">Preparing code for Heroku using Git</a></p></li>
+<li><p><a href="week-3.html#deploy-to-heroku">Deploy NodeJS server on Heroku, available to everyone on the Internet</a></p></li>
+</ul>
+
+<h4>Requirements for this tutorial</h4>
+<ul>
+<li><a href="http://itpwebclass.herokuapp.com/notes/nodejs.org/download/">Get and install NodeJS</a></li>
+<li>Git - <a href="http://git-scm.com/downloads">download install if needed</a></li>
+<li>You'll need a Heroku account, <a href="https://api.heroku.com/signup">register here</a></li>
+<li>Download and install <a href="https://toolbelt.heroku.com/">Heroku toolbelt</a></li>
+</ul>
+
+<h3 id="intro-to-tcp-and-http-servers">Intro to TCP and HTTP Servers</h3>
+
+<p>The most basic server is a TCP server. TCP, transmission control protocol is a protocol developed for the internet to get data from one network device to another.</p>
+
+<p>One computer will run a program or script to act as the server to open its ports to other computers that will connect as clients. The main server script can accept 1 or more clients depending on how the program is setup.</p>
+
+<p>The connection between the TCP server and client(s) is persistent, once a connection is made it remains until one side disconnects. </p>
+
+<p>HTTP is built upon the TCP protocol. HTTP, Hypertext Transfer Protocol, is the connection method for the Web. A Web server (a program) will open a port and accept incoming connections. Web clients connect to server and make a request for web pages, images, CSS, JavaScript. Clients can be browsers, mobile apps and even other servers all making requests.</p>
+
+<p>When a request is received, the HTTP web server will respond appropriately with the data and some other meta information like status code; 200 - successful, 404 - not found, 500 - server error. After the web server responds the connection between the server and client is closed. For every request a connection is made and closed. Being an HTTP web server is a tiring job.</p>
+
+<h3 id="intro-to-nodejs">Intro to NodeJS</h3>
+
+<p>NodeJS (or Node) is a JavaScript framework to build HTTP web and TCP socket servers. These servers are run on code written in JavaScript using various node module libraries. Similar to Processing when you might include a library to perform a special function, Node's modules are organized by function.</p>
+
+<h3 id="installing-testing-nodejs">Installing & Testing NodeJS</h3>
+
+<p>After you have <a href="http://www.nodejs.org/download/">downloaded Node</a>, click and install. You interact with Node through the command line interface, no icons or applications will be displayed on your Desktop or Applications folder.</p>
+
+<h4 id="node-command-line-interface-cli">Node command line interface (CLI)</h4>
+
+<p><strong>Open Terminal</strong>(from Applications/Utilities) and type</p>
+
+<pre><code>node
+</code></pre>
+
+<p>This is your prompt on the NodeJS command line. You can run any JavaScript from the command except for commands related to the web browser. For example</p>
+
+<pre><code>> 1+1
+2
+
+> var dog = "Sheldon"
+undefined
+> dog
+'Sheldon'
+
+> if ('a'=='a') { console.log("those match") }
+those match
+undefined
+</code></pre>
+
+<p>Now if we try to use a browser JavaScript function we will see that NodeJS will throw an error.</p>
+
+<pre><code>> alert("hello world")
+ReferenceError: alert is not defined
+    at repl:1:2
+    at REPLServer.eval (repl.js:80:21)
+    at Interface. (repl.js:182:12)
+    at Interface.emit (events.js:67:17)
+    at Interface._onLine (readline.js:162:10)
+    at Interface._line (readline.js:426:8)
+    at Interface._ttyWrite (readline.js:603:14)
+    at ReadStream. (readline.js:82:12)
+    at ReadStream.emit (events.js:88:20)
+    at ReadStream._emitKey (tty.js:309:10)
+</code></pre>
+
+<p>To exit the Node console, press Contrl+C <strong>twice</strong></p>
+
+<h4 id="running-a-javascript-file-with-node">Running a JavaScript file with Node</h4>
+
+<p>Create a new .js file called <strong>colors.js</strong>. Copy and paste the follow sample code.</p>
+
+<pre><code>// create an array of colors
+var colors = ['Red','Blue','Green','Magenta'];
+
+// loop and print each array number + color
+for (i=0; i < colors.length; i++) {
+    console.log(i + " " + colors[i]);
+}
+</code></pre>
+
+<p>Save the file to your computer and open the Terminal. Inside the Terminal type,</p>
+
+<pre><code>node ***!drag file from Finder to terminal window! ***
+</code></pre>
+
+<p>After entering the filepath your terminal should</p>
+
+<pre><code>node /Users/john/Desktop/DWD/colors.js
+</code></pre>
+
+<p>Press enter to run the code.</p>
+
+<pre><code>0 Red
+1 Blue
+2 Green
+3 Magenta
+</code></pre>
+
+<hr>
+
+<h3 id="tcp-node-server">TCP Node Server</h3>
+
+<p>The following example will create a simple TCP server that will echo back any message received by a client. This example uses NodeJS's NET module, which is included in the standard NodeJS install, <a href="http://nodejs.org/api/net.html">http://nodejs.org/api/net.html</a>.</p>
+
+<p>Copy JavaScript into a new file <strong>tcp_echo.js</strong></p>
+
+<script src="https://gist.github.com/johnschimmel/4960550.js"></script>
+
+<p>Start Server, navigate to code directory in Terminal: </p>
+
+<pre><code>node tcp_echo.js
+</code></pre>
+
+<p>In another new Terminal window, connect to TCP Echo server</p>
+
+<pre><code>telnet localhost 5000
+</code></pre>
+
+<p>Enter a message in the connected Terminal window and hit return key.</p>
+
+<h3 id="http-node-server">HTTP Node Server</h3>
+
+<p>You can create a HTTP web server with NodeJS easily to receive and respond to HTTP requests. This example uses the standard HTTP NodeJS module <a href="http://nodejs.org/api/http.html">http://nodejs.org/api/http.html</a>.</p>
+
+<p>Copy the JavaScript into a new file <strong>web.js</strong></p>
+
+<script src="https://gist.github.com/johnschimmel/4960608.js"></script>
+
+<p>Start the server inside Terminal. Run the command</p>
+
+<pre><code>node web.js
+</code></pre>
+
+<p>View the web page in your browser, <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+<h3 id="heroku-platform">Heroku Platform</h3>
+
+<p><strong><a href="http://www.heroku.com">Heroku.com</a></strong></p>
+
+<p>Heroku is a service to host your web application in the 'cloud'. Their tools allow you to easily increase the number of servers, database and performance of your web site if you have an unexpected wave of traffic. This ease of use to increase capacity in the servers allows a web site to focus on the application and not the infrastructure while their project grows.</p>
+
+<p>Hosting your web application in the 'cloud' is different that hosting it on a shared web server at Dreamhost or Mediatemple where your ability to grow your web site's serving capacity is fixed and usually requires moving files to a new server when upgrading. With services like Heroku and DotCloud.com you push your code to their servers and scale as needed from the browser control panel or command line interface in Terminal.</p>
+
+<h3 id="setup-and-files-for-heroku">Setup and files for Heroku</h3>
+
+<p>For the rest of the semester we will be running web servers locally on our computers for development. When the code is ready to be publicly available on the Internet we will push our code to Heroku, which will serve as our web host. </p>
+
+<p>There is some initial setup to get our code onto Heroku. Heroku needs a few files to know what code should be running and what libraries need to be installed.</p>
+
+<hr>
+
+<h4 id="heroku-boilerplate-repository">Heroku Boilerplate repository</h4>
+
+<p>Download and open the boilerplate code <a href="https://github.com/johnschimmel/Heroku-Boilerplate">https://github.com/johnschimmel/Heroku-Boilerplate</a></p>
+
+<p>The files inside need to be in every web app you push to Heroku for it to be run correctly. Each app can be configured with different requirements and codebase. </p>
+
+<ul>
+<li><p><strong>web.js</strong> - this is the main script that creates a server and responds to client requests.</p></li>
+<li><p><strong>package.json</strong> - this file is required on Heroku, it is a configuration file that provides the name and node modules as well as the NodeJS and NPM versions that should be used for execution.</p></li>
+<li><p><strong>Procfile</strong> - this file tells Heroku which script to run when deployed. We define a 'web' process pointing to <strong>web.js</strong></p></li>
+<li><p><strong>.gitignore</strong> - this file might be invisible because it starts with a '.' this file declares what files Git should ignore. The current file is ignoring the node_modules directory and a .env file.</p></li>
+</ul>
+
+<p>In Terminal, open the Heroku Boilerplate folder. (Keep things organized, move the boilerplate folder into your DWD folder)</p>
+
+<p>The package.json file will keep track of any node modules (libraries) that you use. Below you can see that the modules 'express' version '3.0.x' is a dependency for this project. </p>
+
+<p><strong>package.json</strong></p>
+
+<pre><code>{
+  "name": "mynodeapp",
+  "version": "0.0.1",
+  "dependencies": {
+    "express": "3.0.x"
+  },
+  "engines" : {
+    "node" : "0.8.x",
+    "npm" : "1.1.x"
+  }
+}
+</code></pre>
+
+<p>For today's class we are not using Express but will include it as a dependency in our <strong>package.json</strong></p>
+
+<h4 id="install-node-modules">Install Node Modules</h4>
+
+<p>In Terminal, open the boilerplate folder and run the following command</p>
+
+<pre><code>npm install
+</code></pre>
+
+<p>This command runs NPM, checks for any new dependencies and installs anything that is needed. New node modules will be installed in the <strong>node_modules</strong> directory (which is also created if it does not exist).</p>
+
+<h4 id="start-local-server">Start local server</h4>
+
+<p>You can run the web server locally by typing</p>
+
+<pre><code>foreman start
+</code></pre>
+
+<p>And accessing the local server at <a href="http://localhost:8000">http://localhost:8000</a></p>
+
+<p>You can stop the server by pressing Control+C</p>
+
+<h3 id="deploy-to-heroku">Deploy to Heroku</h3>
+
+<p>Follow Heroku's instructions for deployment here, <a href="https://devcenter.heroku.com/articles/nodejs#store-your-app-in-git">https://devcenter.heroku.com/articles/nodejs#store-your-app-in-git</a></p>
+
+<h3 id="git-init-add-commit-push">Git, init, add, commit, push</h3>
+
+<ul>
+<li>Create Git repo </li>
+<li>Add all files to repo</li>
+<li>Commit changes</li>
+</ul>
+
+<p>In Terminal, inside your code directory run the following commands</p>
+
+<pre><code>    git init
+    git add .
+    git commit -am "initial commit"
+</code></pre>
+
+<h3 id="push-code-to-heroku">Push code to Heroku</h3>
+
+<h4>Heroku Login via Terminal</h4>
+<p>If you have never logged into Heroku via the Terminal, run 'heroku login'</p>
+
+<pre><code>heroku login</code></pre>
+<p>Log in with your Heroku account and credentials.</p>
+
+<h4 id="create-a-heroku-app">Create a Heroku app</h4>
+
+
+<p>In Terminal, inside the code directory you can create a new Heroku app with the following command 'heroku create.</p>
+
+<pre><code>heroku create
+</code></pre>
+
+<p>The response will look like</p>
+
+<pre><code>Creating sharp-rain-871... done, stack is cedar
+http://sharp-rain-871.herokuapp.com/ | git@heroku.com:sharp-rain-871.git
+Git remote heroku added
+</code></pre>
+
+<h4 id="view-githeroku-remote-path">View Git/Heroku remote path</h4>
+
+<p>If successful Heroku toolbelt also adds a new Git remote path. You can view your Git repo's remote paths with the command 'git remote -v'</p>
+
+<pre><code>git remote -v
+</code></pre>
+
+<p>The Terminal will display</p>
+
+<pre><code>heroku  git@heroku.com:thawing-sierra-2838.git (fetch)
+heroku  git@heroku.com:thawing-sierra-2838.git (push)
+</code></pre>
+
+<h4 id="push-code-to-heroku-2">Push Code to Heroku</h4>
+
+<pre><code>git push heroku master
+</code></pre>
+
+<p>This process can take 15 seconds to a few minutes to finish depending on how many dependencies need to be installed.</p>
+
+<h4 id="open-heroku-app">Open Heroku App</h4>
+
+<pre><code>heroku open
+</code></pre>
+
+<h4 id="rename-your-heroku-app">Rename your Heroku app</h4>
+
+<p>Most likely Herok gave your app a crazy name, you can rename it easily with the command 'heroku rename <em>_</em>_'</p>
+
+<pre><code>heroku rename PUTAUNIQUENAMEHEREFORALLTOENJOY
+</code></pre>
+
+<p>If that unique name is available, heroku will rename your app and you will have a better looking subdomain.</p>
+            </section>
+            <br>
+            <hr>
+            <br>
+            <section id="assigment">
+                <a name="assignment"></a>
+<h1>Assignment</h1>
+
+<p>
+<ul>
+<li>Using the sample web server code again, make a server that can serve 3 webpages. Get this server working locally.</li>
+<li>Commit your changes and push this server to Heroku.</li>
+
+<li>Tell your friends and add your web app url to the comment form below.</li>
+</ul>
+
+</p>
+            </section>
+
+            <section id="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'itpdwdspring2013';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+            </section>
+
+
+        </article>
+        
+    </div>
+
+    
+</div>
+
+        </div> <!-- /container -->
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+
+        <script src="../js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-29253415-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

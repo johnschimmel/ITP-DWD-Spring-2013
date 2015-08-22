@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <style>body {
+                padding-top: 60px;
+                padding-bottom: 40px;
+            }
+        </style>
+        <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="../css/main.css">
+
+        <script src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="../index.html">ITP DWD SPRING 2013</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="../index.html">Home</a></li>
+                            <!-- <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>-->
+                            <li class="dropdown">
+                                <a href="week-1.html#" class="dropdown-toggle" data-toggle="dropdown">Notes <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="../page/cheatsheet.html">DWD Cheatsheet</a>
+                                    </li>
+                                  <li>
+                                    <a href="week-1.html">
+                                    Week 1 - Introduction to web development
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-2.html">
+                                    Week 2 - JavaScript functions, events &amp; callbacks
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-3.html">
+                                    Week 3 - Getting started with NodeJS &amp; Heroku
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-4.html">
+                                    Week 4 - ExpressJS framework &amp; templates
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-5.html">
+                                    Week 5 - Databases and MongoDB
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-6.html">
+                                    Week 6 - More on Databases
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-7.html">
+                                    Week 7 - Database review and form validation
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-8.html">
+                                    Week 8 -  Introduction to API&#39;s &amp; JSON
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-9.html">
+                                    Week 9 - Remote APIs, JSON and AJAX
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-10.html">
+                                    Week 10 - Sessions and Cookies
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-11.html">
+                                    Week 11 - Uploading files / Amazon S3
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-12.html">
+                                    Week 12 - Websockets and real-time communication
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-13.html">
+                                    Week 13 - Arduinos, Processing and JSON 
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="week-14.html">
+                                    Week 14 - Final Presentations
+                                    </a>
+                                  </li>
+                               <!--      <li><a href="#">Action</a></li>
+                                    <li><a href="#">Another action</a></li>
+                                    <li><a href="#">Something else here</a></li>
+                                    <li class="divider"></li>
+                                    <li class="nav-header">Nav header</li>
+                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="#">One more separated link</a></li> -->
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="week-1.html#" class="dropdown-toggle" data-toggle="dropdown">Previous Classes <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="http://itppyweb.herokuapp.com">Fall 2012 - Python</a>
+                                    </li>
+                                    <li>
+                                        <a href="http://itpwebclassspring2012.herokuapp.com">Spring 2012 - NodeJS</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                        <form class="hide navbar-form pull-right">
+                            <input class="span2" type="text" placeholder="Email">
+                            <input class="span2" type="password" placeholder="Password">
+                            <button type="submit" class="btn">Sign in</button>
+                        </form>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+    <div class="span2">
+        <div class="well">
+            <a href="week-1.html#notes">Notes</a><br>
+            <a href="week-1.html#assignment">Assignment</a>
+        </div>
+    </div>
+
+    <div class="span10">
+        <article>
+            <header>
+                <h1>Week 1 - Introduction to web development</h1>
+            
+            </header>
+            
+            <div class="intro">
+                <p>Introduction to web development, server-side & client-side. Discussion of basic web requests. The tools you should have to get started. Getting started with JavaScript.</p>
+            </div>
+
+            <hr>
+            
+            <section id="notes">
+                <h2>Web Development</h2>
+
+<p>Web development is a general term for implementing a web site including web design, content creation, server configuration and programming. In this class we will explore web programming in its current state with open source tools and code and methods to serve and collect data from users.
+</p>
+
+<p>Web programming is a two-sided operation including servers and clients
+</p>
+
+<h3>Servers - accepting requests</h3>
+
+<p>A server is usually thought of as a powerful computer serving 1,000’s of user connections, but it is code that turns a powerful computer into a server. A server can be anything that is capable of running a piece of software to accept incoming connections from remote computers (or incoming requests from other applications). Arduinos can become servers with an Ethernet of Wifi Shield. iPhones and Android can also run code to act as a server.
+</p>
+
+<p>The web server is specifically designed to accept HTTP requests and return appropriate responses, HTML, XML, JSON and even file mime type .gif, .jpg, .mp4.
+</p>
+
+<p>There are a variety of web servers, Apache popular in the PHP community. Servers are created in many programming languages too, Ruby, Python, Java and more recently JavaScript. A typical server will be a piece of code, or script that opens a socket. This socket acts like a doorway, allowing clients to request access to content and resources.
+</p>
+
+<h3>Clients - making requests</h3>
+
+<p>On the client-side, we are usually referring to a web browser. Typical usage, a user makes a request from their browser. The user's request goes out on the Internet to find a specific server and make a specific request to that server. A web server returns the appropriate content or information which is rendered into a structured visual web page by the browser.
+</p>
+
+<p>Besides web browsers, a web client is any device or application that communicates with a web server. A Processing sketch or Arduino may be set up as clients to request the latest weather from Yahoo. The new wifi bathroom scales and thermostats are web clients as well, sending user data to a web server for later use. Best guess 99% of mobile phone application that require an Internet connection are connecting to a web server, they too are web clients.
+</p>
+
+<p>Web clients usually expect to receive content from the web server in a specific format, browsers expect HTML, Instant messenger applications likely expect XML, many mobile phone applications expect JSON. It is up to the web client developer to decide on which format they require as a response from the web server.  
+</p>
+
+<h2>Databases</h2>
+
+<p>Databases store data in a structured format that supports searching/querying, aggregating and grouping, inserting, updating and deleting data. Databases can be accessed directly or interfaced with through a programming language like PHP, Python or JavaScript. Databases are popular for supporting relationships between different types of data (MySQL, Postgres), but there is a growing support for unstructured data not focused on relational data (CouchDB, MongoDB).
+</p>
+
+<h3>API's</h3>
+
+<p>An application programming interface or API is a method for one system to open its resources and data to another system which may be a remote server or in a separate application. One website might provide an API to search for location and return image URLs for any matching results. Another company may provide an API to allow a SMS sent or phonecall placed from JavaScript or Processing. API's connect products and services together with a defined request structure.  
+</p>
+
+<h2>JavaScript</h2>
+
+<h3>The most popular web programming language</h3>
+
+<p>JavaScript. It is the little language that could, only a few years ago it was performing pet tricks but has grown up to become the most popular language on the Web, today it is used for
+</p>
+
+<ul><li><p>AJAX and websocket real-time communication in a browser
+</p></li><li><p>Large scale browser web applications like GMail, Facebook and Twitter
+</p></li><li><p>Visualizations tools and Canvas drawing with projects like ProcessingJS 
+</p></li><li><p>Web API’s favor sending data as JSON, JavaScript object notation over XML
+</p></li><li><p>Web and mobile web applications frameworks
+</p></li><li><p>Servers creating TCP, UDP, HTTP, HTTPS with NodeJS
+</p></li></ul>
+
+<h3>Client-side JavaScript</h3>
+
+<p>Most people know of JavaScript because it is integrated into nearly every web browser. Modern browsers are continuing to improve the speed and capabilities to allow developers to create powerful web applications that run entirely inside the browser. JavaScript can manipulate, create HTML elements of a web page, manage CSS styles and even inject new JavaScript into a page. Rendered HTML in a browser is considered the Document Object Model or DOM, JavaScript has full access to the DOM and uses events to connect mouse clicks, mouse overs, drag - drop to custom JavaScript code.
+</p>
+
+<p>Web browsers are not implemented equally, the JavaScript capabilities and runtimes vary from browser to browser. It is common to use JavaScript client-side libraries to make code work consistently from IE to FireFox to Chrome. <a href="http://www.jquery.com">jQuery</a>, <a href="http://www.mootools.net">Mootools</a>, <a href="http://www.sencha.com/products/extjs">ExtJS</a> are a few of the libraries that have a large community of users and are known to work very well for cross-browser compatibility.
+</p>
+
+<h3>Server-side JavaScript</h3>
+
+<p><a href="http://www.nodejs.org">NodeJS</a> is a web language in JavaScript. It uses the best parts of JavaScript, events and asynchronous I/O to create scalable web applications; NodeJS has become popular because of this and the ability to handle thousands of connections on a single instance. 
+</p>
+
+<p>For us at ITP, writing in JavaScript on the client and server side is an added benefit, we only need to worry about a single language. Client and server-side JavaScript share syntax and ideology. 
+</p>
+
+<h2>Tools</h2>
+
+<h3>Browsers</h3>
+
+<p>Please use a WebKit browser when developing, the JavaScript implementation is the best around.
+</p>
+
+<ul><li><a href="https://www.google.com/intl/en/chrome/browser/">Google Chrome</a> ♥
+</li><li><a href="http://www.apple.com/safari/">Apple Safari</a>
+</li><li>Firefox (if you must)
+</li></ul>
+
+<p>WebKit browsers include a JavaScript console for testing and development.
+</p>
+
+<h3>Text editors</h3>
+
+<ul><li><a href="http://www.sublimetext.com/2">Sublime</a> $$ ♥
+</li><li><a href="http://macromates.com/">TextMate</a>$$
+</li><li><a href="http://www.barebones.com/products/textwrangler/">Textwrangler</a> Free
+</li><li><a href="http://panic.com/coda/">Coda</a> $$
+</li></ul>
+
+<h3>Online tools</h3>
+
+<ul><li><a href="http://jsfiddle.net/">JSFiddle</a>
+</li><li><a href="http://jsbin.com">JSBin</a>
+</li></ul>
+
+<h3>Terminal</h3>
+
+<p>Getting to know your command line interface - <a href="http://acad.coloradocollege.edu/dept/pc/SciCompLab/UnixTutorial/">basic unix commands</a> 
+</p>
+
+<h3>NodeJS & NPM</h3>
+
+<ul><li>Download NodeJS (NPM included) <a href="http://nodejs.org">http://nodejs.org</a>
+</li></ul>
+
+<h3>Git</h3>
+
+<p>By the end of the semester you will love Git (if you don't already). And it will make you a better person. Version control is at the center of all our examples and how we will push code to Heroku. We will cover Git repositories (repos), committing changes, pushing to remote Git repos.
+</p>
+
+<ul><li>Download GIT <a href="http://git-scm.com/download">http://git-scm.com/download</a>
+</li><li>Learn Git <a href="http://rogerdudler.github.com/git-guide/">http://rogerdudler.github.com/git-guide/</a>
+</li><li>Setup a Github account <a href="http://www.github.com">http://www.github.com</a>
+</li><li>How you'll feel when using Git <a href="http://wheningit.tumblr.com/">http://wheningit.tumblr.com/</a>
+</li></ul>
+
+<h2>JavaScript language basics</h2>
+
+<h4>Variables</h4>
+
+<p>Always start your variables with <strong>var</strong>.
+</p>
+
+<pre><code>var name = "Tony Pony"; // string</code></pre>
+
+<p>
+</p>
+
+<pre><code>var age = 55; // number</code></pre>
+
+<p>
+</p>
+
+<h4>Comments</h4>
+
+<pre><code>// double slash will comment a line</code></pre>
+
+<p>
+    console.log("This is a test message"); // In Chrome and Safari's JavaScript console you can log messages during code execution
+</p>
+
+<h4>Arrays</h4>
+
+<pre><code>var myArray = []; //makes a new array</code></pre>
+
+<p>
+</p>
+
+<pre><code>var myArray = new Array(); // same as above, just more work</code></pre>
+
+<p>
+</p>
+
+<pre><code>var favoriteColors = ['green','orange','brown']; // create an array with 3 colors</code></pre>
+
+<p>
+</p>
+
+<pre><code>favoriteColors.push('magenta'); //add an item to an existing array</code></pre>
+
+<p>
+</p>
+
+<pre><code>console.log("favoriteColors contains the following colors...");</code></pre>
+
+<p>
+</p>
+
+<pre><code>console.dir(favoriteColors); //view an object to console</code></pre>
+
+<p>
+</p>
+
+<h4>For loop</h4>
+
+<p>Let's for loop through the array. Start at element 0. Increment i until i is greater than the length of favoriteColors.
+</p>
+
+<pre><code>console.log("using the for loop to iterate");</code></pre>
+
+<p>
+	for (i=0; i < favoriteColors.length; i++) {
+</p>
+
+<pre><code>   console.log(i + " " + favoriteColors[i]); //print out each element</code></pre>
+
+<p>
+</p>
+
+<pre><code>}</code></pre>
+
+<p>
+</p>
+
+<pre><code>// an alternative to for, for n in obj</code></pre>
+
+<p>
+</p>
+
+<pre><code>console.log("using for n in, instead of standard for loop")</code></pre>
+
+<p>
+</p>
+
+<pre><code>for (n in favoriteColors) {</code></pre>
+
+<p>
+</p>
+
+<pre><code>   console.log(n + " " + favoriteColors[n]);</code></pre>
+
+<p>
+</p>
+
+<pre><code>}</code></pre>
+
+<p>
+</p>
+
+<h4>Objects</h4>
+
+<p>An object is just an organized set of variables (or nouns) called properties that together represent a piece of data valuable to the program. The properties can be anything, strings, numbers, arrays and even other objects.
+</p>
+
+<p>Objects can have methods (or verbs) that manipulate or act on the data.
+</p>
+
+<p><a href="http://jsbin.com/owidig/1/edit">http://jsbin.com/owidig/1/edit</a>
+</p>
+            </section>
+            <br>
+            <hr>
+            <br>
+            <section id="assigment">
+                <h1>Assignment</h1>
+
+<h3>Download & Install</h3>
+
+<ul><li><a href="http://nodejs.org/">NodeJS & NPM</a>
+</li><li><a href="http://git-scm.com/download">Git</a>
+</li><li>Text editor (Sublime, Textmate, Code, etc)
+</li></ul>
+
+<h3>JavaScript Learning, Practivce, Review</h3>
+
+<ul><li>Codecademy / JavaScript <a href="http://www.codecademy.com/tracks/javascript">http://www.codecademy.com/tracks/javascript</a>
+</li><li>JavaScript Garden <a href="http://bonsaiden.github.com/JavaScript-Garden/">http://bonsaiden.github.com/JavaScript-Garden/</a>
+</li><li>Videos history of JS <a href="http://yuiblog.com/crockford/">Douglas Crockford Video Series</a>
+</li></ul>
+
+<h3>Books</h3>
+
+<ul><li><a href="http://www.amazon.com/dp/0596517742/?tag=stackoverfl08-20">JavaScript: the good parts</a>
+</li><li><a href="http://www.amazon.com/Secrets-JavaScript-Ninja-John-Resig/dp/193398869X/ref=sr_1_1?ie=UTF8&qid=1359737638&sr=8-1&keywords=secrets+of+a+javascript+ninja">Secrets of a JavaScript Ninja</a></li></ul>
+            </section>
+
+            <section id="comments">
+                <div id="disqus_thread"></div>
+                <script type="text/javascript">
+                    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+                    var disqus_shortname = 'itpdwdspring2013';
+
+                    /* * * DON'T EDIT BELOW THIS LINE * * */
+                    (function() {
+                        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                    })();
+                </script>
+                <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+            </section>
+
+
+        </article>
+        
+    </div>
+
+    
+</div>
+
+        </div> <!-- /container -->
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.0.min.js"><\/script>')</script>
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.2/bootstrap.min.js"></script>
+
+        <script src="../js/main.js"></script>
+
+        <script>
+            var _gaq=[['_setAccount','UA-29253415-1'],['_trackPageview']];
+            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+            g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g,s)}(document,'script'));
+        </script>
+    </body>
+</html>

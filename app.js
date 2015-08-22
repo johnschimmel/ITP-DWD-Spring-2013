@@ -66,26 +66,28 @@ passport.deserializeUser(User.deserializeUser());
 
 // public routes
 var routes = require('./routes/index.js');
-app.get('/', routes.index);
+app.get('/', function(req, res) {
+  res.redirect(301, 'http://johnschimmel.github.io/ITP-DWD-Spring-2013/');
+});
 app.get('/notes/:urltitle', routes.notes);
 app.get('/page/:pageslug', routes.pagedisplay);
 
 // admin routes
-var admin = require('./routes/admin.js');
-app.get('/admin',admin.ensureAuthenticated, admin.main);
+// var admin = require('./routes/admin.js');
+// app.get('/admin',admin.ensureAuthenticated, admin.main);
 
-app.get('/admin/entry',admin.ensureAuthenticated, admin.create_note);
-app.get('/admin/edit/:documentid', admin.ensureAuthenticated, admin.edit_note_get);
-app.post('/admin/edit', admin.ensureAuthenticated, admin.edit_note_post);
+// app.get('/admin/entry',admin.ensureAuthenticated, admin.create_note);
+// app.get('/admin/edit/:documentid', admin.ensureAuthenticated, admin.edit_note_get);
+// app.post('/admin/edit', admin.ensureAuthenticated, admin.edit_note_post);
 
-app.get('/admin/page_entry', admin.ensureAuthenticated, admin.page_entry);
-app.get('/admin/page_edit/:documentid', admin.ensureAuthenticated, admin.page_edit);
-app.post('/admin/page_edit', admin.ensureAuthenticated, admin.page_edit_post);
+// app.get('/admin/page_entry', admin.ensureAuthenticated, admin.page_entry);
+// app.get('/admin/page_edit/:documentid', admin.ensureAuthenticated, admin.page_edit);
+// app.post('/admin/page_edit', admin.ensureAuthenticated, admin.page_edit_post);
 
 // login, logout, register functions
-app.get('/admin/login',admin.login);
-app.post('/admin/login',passport.authenticate('local'), admin.login_post);
-app.get('/admin/logout', admin.logout);
+// app.get('/admin/login',admin.login);
+// app.post('/admin/login',passport.authenticate('local'), admin.login_post);
+// app.get('/admin/logout', admin.logout);
 // app.get('/admin/register', admin.register);
 // app.post('/admin/register', admin.register_post);
 
